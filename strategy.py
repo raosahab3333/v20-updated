@@ -39,7 +39,7 @@ all_stocks = [
 # Mock download function to simulate yfinance behavior in unsupported environments
 def download_data(symbol: str) -> pd.DataFrame | None:
     try:
-        df = yf.Ticker(symbol + ".NS").history(start=START_DATE, end=END_DATE)
+        
         # Generate 1000 days of fake price data
         dates = pd.date_range(start=START_DATE, end=END_DATE)
         prices = pd.Series(100 + (pd.Series(range(len(dates))) % 10).cumsum(), index=dates)
